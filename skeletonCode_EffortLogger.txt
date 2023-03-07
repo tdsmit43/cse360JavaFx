@@ -1,0 +1,174 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.text.Text;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.BorderPane;
+
+
+public class Main extends Application {
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	public void start(Stage primaryStage) {
+		try {
+			primaryStage.setTitle("Effort_LoggerV2.0");
+			BorderPane root = new BorderPane();
+			Scene scene = new Scene(root,400,400); //Need a final size.
+			
+			//"Clock is stopped"/ "Clock is started"
+		
+	        
+	      //Text for the Start an Activity button
+	        Text textd1 = new Text();
+
+	        //Setting position for description 1
+	        textd1.setX(300);
+	        textd1.setY(300);
+
+	        textd1.setText("1. When you start a new activity, press the 'Start an Activity' button.");
+	        
+	      //activity button
+			Button btn = new Button();
+	        btn.setText("Start an Activity");
+	        btn.setLayoutX(100); //Need a position.
+	        btn.setLayoutY(80);
+	        btn.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	//1) Pressing the “Start An Activity” button 
+	            	//causes the tool to record the current date and time
+	            	//2) This triggers the red “Clock is stopped” title to 
+	            	//change to a  green “Clock is running” title. 
+	                System.out.println("Activity Started.");
+	            }
+	        });
+	        /*---------------------------------------------------------------------------------------------------------------------------------------*/
+	        //Text for Projects, Life Cycle Steps, and Effort Categorr
+	        Text textd2= new Text();
+	        Text project = new Text();
+	        Text lifecycle = new Text();
+	        Text category = new Text();
+
+
+	        //Set position for description 2 w/ 300 as a placeholder
+	        textd2.setX(300);
+	        textd2.setY(300);
+	        textd2.setText("2. Select the project, life cycle step, effort category, and deliverable from the following lists:");
+
+	        //Set position for "Project" above Development Project dropdown & setting text.
+	        project.setX(300);
+	        project.setY(300);
+	        project.setText("Project:");
+
+	        //Set position for "Life Cycle Step" above the dropdown & setting text.
+	        lifecycle.setX(300);
+	        lifecycle.setY(300);
+	        lifecycle.setText("Life Cycle Step:");
+
+	        //Set position for "Effort Category" above the dropdown & setting text.
+	        category.setX(300);
+	        category.setY(300);
+	        category.setText("Effort Category:"); 
+	        
+	        //Dropdowns...
+	        
+	        /*---------------------------------------------------------------------------------------------------------------------------------------*/
+	     
+	        //Text for the Stop an Activity button
+	        Text textd3 = new Text();
+	        
+	        //Setting position for description 3
+	        textd3.setX(300);
+	        textd3.setY(300);
+	        
+	        textd3.setText("3. Press the 'Stop this activity' to generate an effort log entry using the attributes above.");
+	        
+	        Button btn2 = new Button();
+	        btn2.setText("Stop this Activity");
+	        btn2.setLayoutX(100); //Need a position.
+	        btn2.setLayoutY(80);
+	        btn2.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	//1) The information collected in the pull-down menus between the start and stop buttons 
+	            	//is then captured and stored in the log, along with the number of minutes (two  decimal places) 
+	            	//between pressing the start and stop buttons. 
+	            	//If the stop button was pressed on a  different day from the start button, 
+	            	//a separate log entry is made for each distinct day, 
+	            	//so that all the time between pressing the start and stop buttons is captured.
+	            	//2) This triggers the green “Clock is running” title to 
+	            	//change to a red “Clock is stopped” title. 
+
+	                System.out.println("Activity Ended.");
+	            }
+	        });
+	        
+	        /*---------------------------------------------------------------------------------------------------------------------------------------*/
+	      //Text for description 4 (Hardest one as buttons lead to different panes and processes)
+	        Text textd4 = new Text();
+
+	        //Setting position for description 4
+	        textd4.setX(300);
+	        textd4.setY(300);
+
+	        textd4.setText("4. Unless you are done for the day, it is best to perform steps 1 and 2 above before resuming work.");
+	        
+	        Button editor = new Button();
+	        editor.setText("Effort Log Editor");
+	        editor.setLayoutX(100);
+	        editor.setLayoutY(80);
+	        editor.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	//
+	            }
+	        });
+	        
+	        Button console = new Button();
+	        console.setText("Defect Log Console");
+	        console.setLayoutX(100);
+	        console.setLayoutY(80);
+	        console.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	//
+	            }
+	        });
+	        
+	        Button definitions = new Button();
+	        definitions.setText("Definitions");
+	        definitions.setLayoutX(100);
+	        definitions.setLayoutY(80);
+	        definitions.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	//
+	            }
+	        });
+	        
+	        Button defects = new Button();
+	        defects.setText("Effort and Defect Logs");
+	        defects.setLayoutX(100);
+	        defects.setLayoutY(80);
+	        defects.setOnAction(new EventHandler<>() {
+	            public void handle(ActionEvent event) {
+	            	//
+	            }
+	        });
+	        
+	        /*---------------------------------------------------------------------------------------------------------------------------------------*/
+	        
+	        //Showing the scene i.e. the Effort Logger Window
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}
